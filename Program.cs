@@ -1,16 +1,18 @@
-﻿using System;
-using System.Text;
+﻿
+
+using GeraEstoque.Repositories;
+using GeraEstoque.Screens;
 
 namespace GeraEstoqueNew// Note: actual namespace depends on the project name.
 {
   internal class Program
   {
+
     static void Main(string[] args)
     {
-      Menu.Menus();
+      ProdutoRepository repository = new ProdutoRepository();
 
-     Cadastrar.CadastrarProdutos();
-
+      MenuScreen.Iniciar(repository);
     }
   }
 }

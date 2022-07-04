@@ -1,8 +1,13 @@
-namespace GeraEstoqueNew;
-public static class Menu
-{
-  public static void Menus()
+
+
+using GeraEstoque.Repositories;
+
+namespace GeraEstoque.Screens;
+public static class MenuScreen{
+
+  public static void  Iniciar(ProdutoRepository repository)
   {
+    Console.Clear();
     char linha = '\n';
     Console.WriteLine(linha);
     Console.WriteLine("   Seja Bem Vindo ao GeraEstoque 1.0");
@@ -11,6 +16,7 @@ public static class Menu
     Console.WriteLine("  2  Consultar produto");
     Console.WriteLine("  3  Modificar produto");
     Console.WriteLine("  4  Excluir produto");
+    Console.WriteLine("  5  Listar todos os produtos");
     Console.WriteLine("  0  Sair");
     Console.WriteLine(linha);
     Console.WriteLine(" Digite a opção: ");
@@ -20,45 +26,50 @@ public static class Menu
     {
       case "1":
         {
-          Cadastrar.CadastrarProdutos();
-
+          CriarProdutoScreen.Iniciar(repository);
+          Iniciar(repository);
           break;
         }
       case "2":
         {
           Console.Clear();
-          Menus();
+         Iniciar(repository);
 
           break;
         }
       case "3":
         {
           Console.Clear();
-          Menus();
+         Iniciar(repository);
 
           break;
         }
       case "4":
         {
           Console.Clear();
-          Menus();
+         Iniciar(repository);
 
           break;
         }
-      case "0":
+      case "5":
         {
-          Console.Clear();
-          Environment.Exit(0);
+          ListarProdutosScreen.Iniciar(repository);
+          Iniciar(repository);
           break;
+
+
         }
 
       default:
         {
           Console.Clear();
-          Menus(); break;
+          Environment.Exit(0);
+         break;
         }
     }
 
   }
 
-}
+  }
+
+
